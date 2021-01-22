@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { EColor } from '../config/colors';
+import { EColor } from '../config/enums';
 
 interface IProps {
     title: string;

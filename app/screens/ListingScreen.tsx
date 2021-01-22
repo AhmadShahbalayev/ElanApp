@@ -3,7 +3,7 @@ import { FlatList, StyleSheet } from 'react-native';
 import Card from '../components/Card';
 
 import Screen from '../components/Screen';
-import { EColor } from '../config/colors';
+import { EColor } from '../config/enums';
 
 const listings = [
     {

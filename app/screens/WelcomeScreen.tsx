@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, ImageBackground, StyleSheet, View, Text } from 'react-native';
 import AppButton from '../components/AppButton';
-import { EColor } from '../config/colors';
+import { EColor } from '../config/enums';
 
 function WelcomeScreen() {
     return (

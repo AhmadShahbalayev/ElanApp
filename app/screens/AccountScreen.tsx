@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
 
-import { EColor } from '../config/colors';
+import { EColor } from '../config/enums';
 import ListItem from '../components/ListItem';
 import Screen from '../components/Screen';
 import Icon from '../components/Icon';

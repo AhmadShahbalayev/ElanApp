@@ -5,7 +5,7 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import AppText from './AppText';
 
-import { EColor } from '../config/colors'
+import { EColor } from '../config/enums'
 
 interface IProps {
     title: string;

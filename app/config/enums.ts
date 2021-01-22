@@ -3,6 +3,7 @@ export enum EColor {
     'SECONDARY' = '#4ecdc4',
     'BLACK' = '#000000',
     'WHITE' = '#ffffff',
+    'DARK' = '#0c0c0c',
     'MEDIUM' = '#6e6969',
     'LIGHT' = '#f8f4f4',
     'DANGER' = '#ff5252',

@@ -3,7 +3,7 @@ import { Image, View, StyleSheet } from 'react-native';
 
 import AppText from '../components/AppText';
 import ListItem from '../components/ListItem';
-import { EColor } from '../config/colors';
+import { EColor } from '../config/enums';
 
 function ListingDetailsScreen() {
     return (

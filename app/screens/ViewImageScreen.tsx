@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { EColor } from '../config/colors';
+import { EColor } from '../config/enums';
 
 function ViewImageScreen() {
     return (
