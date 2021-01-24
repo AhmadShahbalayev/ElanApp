@@ -6,12 +6,27 @@ import { TextInput } from 'react-native';
 import { EColor } from '../config/enums';
 import { defaultStyles } from '../config/styles';
 
-interface IProps {
+type AUTO_CAPITALIZE = 'none' | 'sentences' | 'words' | 'characters';
+type TEXT_CONTENT_TYPE = 'none' | 'URL' | 'addressCity' | 'addressCityAndState' | 'addressState'
+| 'countryName' | 'creditCardNumber' | 'emailAddress' | 'familyName' | 'fullStreetAddress'
+| 'givenName' | 'jobTitle' | 'location' | 'middleName' | 'name' | 'namePrefix' | 'nameSuffix'
+| 'nickname' | 'organizationName' | 'postalCode' | 'streetAddressLine1' | 'streetAddressLine2'
+| 'sublocality' | 'telephoneNumber' | 'username' | 'password' | 'newPassword' | 'oneTimeCode'; 
+
+export interface IAppTextInputProps {
     icon?: string;
     placeholder?: string;
+    autoCapitalize?: AUTO_CAPITALIZE;
+    autoCorrect?: boolean;
+    keyBoardType?: string;
+    textContentType?: TEXT_CONTENT_TYPE;
+    secureTextEntry?: boolean;
+    maxLength?: number;
+    multiline?: boolean;
+    numberOfLines?: number; 
 }
 
-function AppTextInput({ icon, ...otherProps }: IProps) {
+function AppTextInput({ icon, ...otherProps }: IAppTextInputProps) {
     return (
         <View style={styles.container}>
             {icon && 
@@ -22,7 +37,10 @@ function AppTextInput({ icon, ...otherProps }: IProps) {
                 color={EColor.MEDIUM}
                 style={styles.icon}
             />}
-            <TextInput style={defaultStyles.text} {...otherProps} />
+            <TextInput
+                placeholderTextColor={EColor.MEDIUM}
+                style={defaultStyles.text} {...otherProps}
+            />
         </View>
     );
 }

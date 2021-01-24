@@ -14,7 +14,7 @@ interface IProps {
     icon?: string;
     placeholder?: string;
     items?: ICategoryItem[];
-    selectedItem: ICategoryItem | undefined;
+    selectedItem?: ICategoryItem;
     onSelectItem: (item: any) => void;
 }
 
@@ -33,7 +33,7 @@ function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }: IPr
                         color={EColor.MEDIUM}
                         style={styles.icon}
                     />}
-                    <AppText style={[defaultStyles.text, styles.text]}>
+                    <AppText style={selectedItem ? styles.text : styles.placeholder}>
                         {selectedItem ? selectedItem.label : placeholder}
                     </AppText>
                     <MaterialCommunityIcons
@@ -75,6 +75,10 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     text: {
+        flex: 1,
+    },
+    placeholder: {
+        color: EColor.MEDIUM,
         flex: 1,
     },
 })

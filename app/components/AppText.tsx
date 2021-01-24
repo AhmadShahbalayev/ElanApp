@@ -4,7 +4,7 @@ import { Text } from 'react-native';
 import { defaultStyles } from '../config/styles';
 
 interface IProps {
-    children: string | undefined;
+    children?: string;
     style?: object;
 }
 
