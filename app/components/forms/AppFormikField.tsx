@@ -8,9 +8,10 @@ interface IProps extends IAppTextInputProps {
     name: string;
     onChangeText?: (e: string) => void;
     onBlur?: () => void;
+    width?: number;
 }
 
-function AppFormikField({ name, ...otherProps }: IProps) {
+function AppFormikField({ name, width, ...otherProps }: IProps) {
     const { touched, setFieldTouched, handleChange, errors } = useFormikContext();
 
     return (
@@ -18,6 +19,7 @@ function AppFormikField({ name, ...otherProps }: IProps) {
             <AppTextInput
                 onBlur={() => setFieldTouched(name)}
                 onChangeText={handleChange(name)}
+                width={width}
                 {...otherProps}
             />
             <AppErrorMessage errorText={errors[name as keyof typeof errors]} visible={touched[name as keyof typeof touched]} />

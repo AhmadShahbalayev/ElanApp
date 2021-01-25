@@ -23,12 +23,13 @@ export interface IAppTextInputProps {
     secureTextEntry?: boolean;
     maxLength?: number;
     multiline?: boolean;
-    numberOfLines?: number; 
+    numberOfLines?: number;
+    width?: number | string;
 }
 
-function AppTextInput({ icon, ...otherProps }: IAppTextInputProps) {
+function AppTextInput({ icon, width = '100%', ...otherProps }: IAppTextInputProps) {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
             {icon && 
             <MaterialCommunityIcons
                 // @ts-ignore
@@ -50,7 +51,6 @@ const styles = StyleSheet.create({
         backgroundColor: EColor.LIGHT,
         borderRadius: 25,
         flexDirection: 'row',
-        width: '100%',
         padding: 15,
         marginVertical: 10,
     },

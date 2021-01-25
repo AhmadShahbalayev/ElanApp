@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { EColor } from '../config/enums';
+import { EColor } from '../../config/enums';
 
 function ListItemSeperator() {
     return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { View, StyleSheet, Modal, Button, TouchableWithoutFeedback, FlatList } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -6,7 +6,6 @@ import AppText from './AppText';
 import Screen from './Screen';
 
 import { EColor } from '../config/enums';
-import { defaultStyles } from '../config/styles';
 import { ICategoryItem } from '../config/interfaces';
 import PickerItem from './PickerItem';
 
@@ -16,15 +15,27 @@ interface IProps {
     items?: ICategoryItem[];
     selectedItem?: ICategoryItem;
     onSelectItem: (item: any) => void;
+    width?: number | string;
+    PickerItemComponent?: ReactNode;
+    numberOfColumns: number;
 }
 
-function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }: IProps) {
+function AppPicker({
+    icon,
+    items,
+    placeholder,
+    numberOfColumns,
+    selectedItem,
+    onSelectItem,
+    width = '100%',
+    PickerItemComponent = PickerItem,
+}: IProps) {
     const [modalVisible, setModalVisible] = React.useState(false);
 
     return (
         <>
             <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-                <View style={styles.container}>
+                <View style={[styles.container, { width }]}>
                     {icon && 
                     <MaterialCommunityIcons
                         // @ts-ignore
@@ -50,10 +61,17 @@ function AppPicker({ icon, items, placeholder, selectedItem, onSelectItem }: IPr
                     <FlatList
                         data={items}
                         keyExtractor={item => item.value.toString()}
-                        renderItem={({ item }) => <PickerItem label={item.label} onPress={() => {
-                            setModalVisible(false);
-                            onSelectItem(item);
-                        }} />}
+                        numColumns={numberOfColumns}
+                        renderItem={({ item }) => 
+                            // @ts-ignore
+                            <PickerItemComponent
+                                item={item}
+                                label={item.label}
+                                onPress={() => {
+                                    setModalVisible(false);
+                                    onSelectItem(item);
+                            }}
+                        />}
                     />
                 </Screen>
             </Modal>
@@ -66,7 +84,6 @@ const styles = StyleSheet.create({
         backgroundColor: EColor.LIGHT,
         borderRadius: 25,
         flexDirection: 'row',
-        width: '100%',
         padding: 15,
         marginVertical: 10,
         alignItems: 'center',

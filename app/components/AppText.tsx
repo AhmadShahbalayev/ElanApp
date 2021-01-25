@@ -6,10 +6,11 @@ import { defaultStyles } from '../config/styles';
 interface IProps {
     children?: string;
     style?: object;
+    numberOfLines?: number;
 }
 
-function AppText({ children, style }: IProps) {
-    return <Text style={[defaultStyles.text, style]}>{children}</Text>;
+function AppText({ children, style, ...otherProps }: IProps) {
+    return <Text style={[defaultStyles.text, style]} {...otherProps}>{children}</Text>;
 };
 
 export default AppText;

@@ -1,17 +1,18 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
+import { ICategoryItem } from '../config/interfaces';
 
 import AppText from './AppText';
 
 interface IProps {
-    label: string;
     onPress: () => void;
+    item: ICategoryItem;
 }
 
-function PickerItem({ label, onPress }: IProps) {
+function PickerItem({ onPress, item }: IProps) {
     return (
         <TouchableOpacity onPress={onPress}>
-            <AppText style={styles.text}>{label}</AppText>
+            <AppText style={styles.text}>{item.label}</AppText>
         </TouchableOpacity>
     );
 }
